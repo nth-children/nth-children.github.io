@@ -75,15 +75,18 @@ customElements.define(
         (this.nth = createElement("style" /* CSS nth-child injected here */)),
         // ----------------------------------------------------------------------- H1
         createElement("H1", {
+          part: "h1",
           textContent: `:nth-child builder`,
         }),
         // ----------------------------------------------------------------------- Examples
         createElement("DIV", {
           id: "examples",
+          part: "examples",
           innerHTML: "<b>Examples</b> click to select:",
           append: nthExamples.map(({ nth, title }) =>
             createElement("div", {
               className: "example",
+              part: "example",
               innerHTML: `<div class="nthselector">${nth}</div><summary>${title}</summary>`,
               onclick: (evt) => this.setnth(nth),
               onmouseenter: (evt) => {
@@ -96,6 +99,7 @@ customElements.define(
         // ----------------------------------------------------------------------- edit <input>
         createElement("div", {
           id: "edit",
+          part: "edit",
           append: [
             "Edit: ",
             (this.input = createElement("input", {
@@ -109,10 +113,12 @@ customElements.define(
         }),
         // ----------------------------------------------------------------------- Smileys
         createElement("grid-container", {
+          part: "grid-container",
           append: Array(cellcount)
             .fill(0)
             .map((_, idx) =>
               createElement("grid-cell", {
+                part: "grid-cell",
                 innerHTML: `<span class="include">${smile}</span>`,
               })
             ),
